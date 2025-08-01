@@ -1,0 +1,3 @@
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/CMakeFiles/xlnt-populate.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/CMakeFiles/ALL_BUILD.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/CMakeFiles/ZERO_CHECK.dir

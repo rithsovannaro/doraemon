@@ -1,0 +1,10 @@
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\079A098AF75C967A00BD04BE5345CC03\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild -BC:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

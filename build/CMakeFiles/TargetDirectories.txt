@@ -1,0 +1,15 @@
+C:/Users/Admin/Desktop/githubclone/Dore/build/CMakeFiles/StockManagementSystem.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/CMakeFiles/INSTALL.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-build/CMakeFiles/INSTALL.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-build/source/CMakeFiles/xlnt.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-build/source/CMakeFiles/uninstall.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-build/source/CMakeFiles/INSTALL.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-build/source/CMakeFiles/ALL_BUILD.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-build/source/third-party/libstudxml/CMakeFiles/libstudxml.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-build/source/third-party/libstudxml/CMakeFiles/INSTALL.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-build/source/third-party/libstudxml/CMakeFiles/ALL_BUILD.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/tabulate-build/CMakeFiles/INSTALL.dir
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/tabulate-build/CMakeFiles/ALL_BUILD.dir

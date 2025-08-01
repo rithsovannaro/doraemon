@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Admin\Desktop\githubclone\Dore\build\CMakeFiles\b7fa5d0e4e3609728f6c37b7c6d16f9b\uninstall.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Admin\Desktop\githubclone\Dore\build\_deps\xlnt-src\source\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Admin\Desktop\githubclone\Dore\build\_deps\xlnt-build\source\CMakeFiles\uninstall" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7EA1783D-D985-3EA7-8D61-2425F93C7E6E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

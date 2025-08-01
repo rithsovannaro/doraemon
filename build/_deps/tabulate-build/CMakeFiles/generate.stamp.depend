@@ -1,0 +1,7 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.22/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.22/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.22/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.22/Modules/WriteBasicConfigVersionFile.cmake
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/tabulate-src/CMakeLists.txt
+C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/tabulate-src/tabulateConfig.cmake.in

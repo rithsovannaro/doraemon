@@ -1,0 +1,10 @@
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\CMAKEFILES\23BF64537CE6071D2738E04839A2BCC0\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Admin/Desktop/githubclone/Dore -BC:/Users/Admin/Desktop/githubclone/Dore/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Admin/Desktop/githubclone/Dore/build/StockManagementSystem.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

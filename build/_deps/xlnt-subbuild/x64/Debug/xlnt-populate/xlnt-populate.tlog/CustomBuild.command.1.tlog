@@ -1,0 +1,162 @@
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\5B18F83086BF2002F6080BC42F0CC025\XLNT-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src/xlnt-populate-stamp/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src/xlnt-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src/xlnt-populate-stamp/Debug/xlnt-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\5B18F83086BF2002F6080BC42F0CC025\XLNT-POPULATE-DOWNLOAD.RULE
+setlocal
+cd C:\Users\Admin\Desktop\githubclone\Dore\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/tmp/xlnt-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src/xlnt-populate-stamp/Debug/xlnt-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\5B18F83086BF2002F6080BC42F0CC025\XLNT-POPULATE-UPDATE.RULE
+setlocal
+cd C:\Users\Admin\Desktop\githubclone\Dore\build\_deps\xlnt-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/tmp/xlnt-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\5B18F83086BF2002F6080BC42F0CC025\XLNT-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src/xlnt-populate-stamp/Debug/xlnt-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\5B18F83086BF2002F6080BC42F0CC025\XLNT-POPULATE-CONFIGURE.RULE
+setlocal
+cd C:\Users\Admin\Desktop\githubclone\Dore\build\_deps\xlnt-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src/xlnt-populate-stamp/Debug/xlnt-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\5B18F83086BF2002F6080BC42F0CC025\XLNT-POPULATE-BUILD.RULE
+setlocal
+cd C:\Users\Admin\Desktop\githubclone\Dore\build\_deps\xlnt-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src/xlnt-populate-stamp/Debug/xlnt-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\5B18F83086BF2002F6080BC42F0CC025\XLNT-POPULATE-INSTALL.RULE
+setlocal
+cd C:\Users\Admin\Desktop\githubclone\Dore\build\_deps\xlnt-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src/xlnt-populate-stamp/Debug/xlnt-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\5B18F83086BF2002F6080BC42F0CC025\XLNT-POPULATE-TEST.RULE
+setlocal
+cd C:\Users\Admin\Desktop\githubclone\Dore\build\_deps\xlnt-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src/xlnt-populate-stamp/Debug/xlnt-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\C8C906C98F0C020D6302F75DEFB805F3\XLNT-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/CMakeFiles/Debug/xlnt-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/xlnt-populate-prefix/src/xlnt-populate-stamp/Debug/xlnt-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKEFILES\079A098AF75C967A00BD04BE5345CC03\XLNT-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ADMIN\DESKTOP\GITHUBCLONE\DORE\BUILD\_DEPS\XLNT-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild -BC:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild --check-stamp-file C:/Users/Admin/Desktop/githubclone/Dore/build/_deps/xlnt-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
