@@ -1,3 +1,0 @@
-repository='https://github.com/tfussell/xlnt.git'
-module=''
-tag='origin'

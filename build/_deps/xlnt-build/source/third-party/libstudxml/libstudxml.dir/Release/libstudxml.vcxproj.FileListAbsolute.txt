@@ -1,1 +1,0 @@
-C:\Users\Admin\Desktop\githubclone\Dore\build\_deps\xlnt-build\source\third-party\libstudxml\libstudxml.dir\Release\libstudxml.lib
