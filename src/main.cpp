@@ -6,6 +6,10 @@
 #include "../include/ExcelUtil.hpp"
 #include "../include/DisplayUtil.hpp"
 #include "../include/Receipt.hpp"
+#include <algorithm> // for sort, transform
+#include <cctype>    // for tolower
+#include <string>
+
 
 using namespace std;
 // Function prototypes
@@ -15,16 +19,31 @@ void userRegister();
 void userLogin();
 void adminDashboard();
 void staffDashboard();
+void searchStock();
 void addStock();
 void updateStock();
 void deleteStock();
 void displayAllStocks();
+// Add more function by san
+void addItemToCart();
+void viewCart();
 
 // Global data storage
 vector<User> users;
 vector<Stock> stocks;
 
+
 int main() {
+    cout << "______   _______  _______  _______  _______  _______  _______  _       \n";
+    cout << "(  __  \\ (  ___  )(  ____ )(  ___  )(  ____ \\(       )(  ___  )( (    /|\n";
+    cout << "| (  \\  )| (   ) || (    )|| (   ) || (    \\/| () () || (   ) ||  \\  ( |\n";
+    cout << "| |   ) || |   | || (____)|| (___) || (__    | || || || |   | ||   \\ | |\n";
+    cout << "| |   | || |   | ||     __)|  ___  ||  __)   | |(_)| || |   | || (\\ \\) |\n";
+    cout << "| |   ) || |   | || (\\ (   | (   ) || (      | |   | || |   | || | \\   |\n"; 
+    cout << "| (__/  )| (___) || ) \\ \\__| )   ( || (____/\\| )   ( || (___) || )  \\  |\n";
+    cout << "(______/ (_______)|/   \\__/|/     \\|(_______/|/     \\|(_______)|/    )_)\n";
+                       
+
     try {
         DisplayUtil::displayWelcome();
 
@@ -106,6 +125,125 @@ void adminLogin() {
         cout << "Invalid username or password, or not an admin." << endl;
     }
 }
+std::string toLower(const std::string& s) {
+    std::string result = s;
+    std::transform(result.begin(), result.end(), result.begin(),
+                   [](unsigned char c){ return std::tolower(c); });
+    return result;
+}
+void searchStock() {
+    cout << "\n--- Search Stock ---" << endl;
+    cout << "Search by:\n";
+    cout << "[1] ID\n[2] Name\n[3] Quantity Range\n[4] Price Range\n";
+    cout << "Enter option: ";
+    int option;
+    cin >> option;
+
+    vector<Stock> results;
+
+    if (option == 1) {
+        // 🔹 Search by ID
+        int id;
+        cout << "Enter stock ID: ";
+        cin >> id;
+        for (const auto& stock : stocks) {
+            if (stock.getId() == id) {
+                results.push_back(stock);
+                break; // only one match possible
+            }
+        }
+    } 
+    else if (option == 2) {
+        // 🔹 Search by Name (case-insensitive)
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear buffer
+        string name;
+        cout << "Enter stock name (or part of it): ";
+        getline(cin, name);
+        string nameLower = toLower(name);
+
+        for (const auto& stock : stocks) {
+            if (toLower(stock.getName()).find(nameLower) != string::npos) {
+                results.push_back(stock);
+            }
+        }
+    } 
+    else if (option == 3) {
+        // 🔹 Search by Quantity Range
+        int minQty, maxQty;
+        cout << "Enter minimum quantity: ";
+        cin >> minQty;
+        cout << "Enter maximum quantity: ";
+        cin >> maxQty;
+
+        for (const auto& stock : stocks) {
+            if (stock.getQuantity() >= minQty && stock.getQuantity() <= maxQty) {
+                results.push_back(stock);
+            }
+        }
+    } 
+    else if (option == 4) {
+        // 🔹 Search by Price Range
+        double minPrice, maxPrice;
+        cout << "Enter minimum price: ";
+        cin >> minPrice;
+        cout << "Enter maximum price: ";
+        cin >> maxPrice;
+
+        for (const auto& stock : stocks) {
+            if (stock.getPrice() >= minPrice && stock.getPrice() <= maxPrice) {
+                results.push_back(stock);
+            }
+        }
+    } 
+    else {
+        cout << "❌ Invalid option.\n";
+        return;
+    }
+
+    if (results.empty()) {
+        cout << "⚠️ No stock items found for the search criteria.\n";
+        return;
+    }
+
+    // 🔽 Sorting menu
+    cout << "\nSort results by:\n";
+    cout << "[1] ID\n[2] Name\n[3] Quantity\n[4] Price\n";
+    cout << "Enter option: ";
+    int sortOption;
+    cin >> sortOption;
+
+    switch(sortOption) {
+        case 1:
+            sort(results.begin(), results.end(),
+                 [](const Stock& a, const Stock& b) { return a.getId() < b.getId(); });
+            break;
+        case 2:
+            sort(results.begin(), results.end(),
+                 [](const Stock& a, const Stock& b) { return toLower(a.getName()) < toLower(b.getName()); });
+            break;
+        case 3:
+            sort(results.begin(), results.end(),
+                 [](const Stock& a, const Stock& b) { return a.getQuantity() < b.getQuantity(); });
+            break;
+        case 4:
+            sort(results.begin(), results.end(),
+                 [](const Stock& a, const Stock& b) { return a.getPrice() < b.getPrice(); });
+            break;
+        default:
+            cout << "⚠️ Invalid sort option. Displaying unsorted results.\n";
+            break;
+    }
+
+    // ✅ Display results
+    cout << "\n--- Search Results ---\n";
+    for (const auto& stock : results) {
+        cout << "ID: " << stock.getId()
+             << " | Name: " << stock.getName()
+             << " | Qty: " << stock.getQuantity()
+             << " | Price: $" << stock.getPrice() << endl;
+    }
+}
+
 
 // Admin dashboard function
 void adminDashboard() {
@@ -134,6 +272,9 @@ void adminDashboard() {
                 break;
             case 3:
                 deleteStock();
+                break;
+            case 4:
+                searchStock();
                 break;
             case 5:
                 displayAllStocks();
@@ -238,13 +379,18 @@ void deleteStock() {
     });
 
     if (it != stocks.end()) {
+        // Remove from vector
         stocks.erase(it);
+
+        // Update the file
         ExcelUtil::writeStockToFile("data/stock.xlsx", stocks);
-        cout << "Stock with ID " << id << " deleted successfully!" << endl;
+
+        cout << " Stock with ID " << id << " deleted successfully!" << endl;
     } else {
-        cout << "Stock with ID " << id << " not found." << endl;
+        cout << " Stock with ID " << id << " not found." << endl;
     }
 }
+
 
 // Display All Stocks Function
 void displayAllStocks() {
@@ -261,3 +407,4 @@ void userLogin() {
 void staffDashboard() {
     cout << "Staff dashboard not yet implemented." << endl;
 }
+
