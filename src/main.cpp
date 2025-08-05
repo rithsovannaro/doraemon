@@ -13,6 +13,7 @@
 #include "../include/Receipt.hpp"
 
 using namespace std;
+const int LOW_STOCK_THRESHOLD = 20; 
 
 // ─── Function Prototypes ────────────────────────────────────────
 void displayMainMenu();
@@ -26,6 +27,7 @@ void addStock();
 void updateStock();
 void deleteStock();
 void displayAllStocks();
+void trackInventory();
 
 // for User
 void addItemToCart();
@@ -154,7 +156,7 @@ void adminDashboard() {
                 displayAllStocks();
                 break;
             case 6:
-                cout << "Track Inventory feature not yet implemented." << endl;
+                trackInventory();
                 break;
             case 7:
                 cout << "Generate Low-Stock Alerts feature not yet implemented." << endl;   
@@ -297,6 +299,51 @@ void searchStock() {
 // ─── Display All Stocks ─────────────────────────────────────────
 void displayAllStocks() {
     DisplayUtil::displayStocks(stocks);
+}
+void trackInventory() {
+    cout << "\n--- Inventory Tracking Summary ---" << endl;
+
+    if (stocks.empty()) {
+        cout << "No stock items to track. Inventory is empty." << endl;
+        return;
+    }
+
+    int totalUniqueItems = stocks.size();
+    long long totalQuantity = 0; // Use long long for total quantity to prevent overflow
+    double totalPrice = 0.0; // Variable to store total price
+    vector<Stock> lowStockItems;
+
+    for (const auto& stock : stocks) {
+        totalQuantity += stock.getQuantity();
+        totalPrice += (static_cast<double>(stock.getQuantity()) * stock.getPrice()); // Calculate total price
+        if (stock.getQuantity() < LOW_STOCK_THRESHOLD) {
+            lowStockItems.push_back(stock);
+        }
+    }
+
+    cout << "Total unique stock items: " << totalUniqueItems << endl;
+    cout << "Total quantity of all items: " << totalQuantity << endl;
+    cout << "Total value of all items: $" << fixed << setprecision(2) << totalPrice << endl; // Display total price
+
+    cout << "\n--- Low Stock Alerts (Quantity < " << LOW_STOCK_THRESHOLD << ") ---" << endl;
+    if (lowStockItems.empty()) {
+        cout << "No items are currently low in stock. Good job!" << endl;
+    } else {
+        cout << "The following items are running low:" << endl;
+        cout << "ID\tName\t\tQuantity\tPrice" << endl;
+        cout << "-----------------------------------------------------" << endl;
+        for (const auto& item : lowStockItems) {
+            // Adjust spacing for better alignment if name is short
+            cout << item.getId() << "\t" << item.getName();
+            if (item.getName().length() < 20) { // Heuristic for short names
+                cout << "\t\t";
+            } else {
+                cout << "\t";
+            }
+            cout << item.getQuantity() << "\t\t" << item.getPrice() << endl;
+        }
+        cout << "-----------------------------------------------------" << endl;
+    }
 }
 
 // ─── Stub Functions ─────────────────────────────────────────────
