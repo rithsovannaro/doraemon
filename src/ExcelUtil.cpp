@@ -8,7 +8,6 @@ namespace fs = std::filesystem;
 // Helper function to create the data directory if it doesn't exist
 void ensureDirectoryExists(const std::string& path) {
     if (!fs::exists(path)) {
-        std::cout << "Data directory not found. Creating new directory: " << path << std::endl;
         try {
             fs::create_directories(path);
         } catch (const fs::filesystem_error& e) {
