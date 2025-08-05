@@ -3,9 +3,9 @@
 
 // Implementation of the DisplayUtil class
 void DisplayUtil::displayWelcome() {
-    std::cout << "---------------------------------------" << std::endl;
-    std::cout << "  Welcome to the Stock Management System " << std::endl;
-    std::cout << "---------------------------------------" << std::endl;
+    std::cout << "+----------------------------------------+" << std::endl;
+    std::cout << "| \033[1;31mWelcome to the Stock Management System\033[0m |" << std::endl;
+    std::cout << "+----------------------------------------+" << std::endl;
 }
 
 void DisplayUtil::displayUsers(const std::vector<User>& users) {
