@@ -564,3 +564,74 @@ void viewCart() {
     cout << "-------------------\n";
     cout << "Total: $" << total << endl;
 }
+#include <iomanip>
+#include <ctime>
+
+void printStockReport() {
+    // ─── Current Date & Time ──────────────────────────────
+    time_t now = time(nullptr);
+    char dateBuf[100];
+    strftime(dateBuf, sizeof(dateBuf), "%Y-%m-%d %H:%M:%S", localtime(&now));
+
+    // ─── Report Header ────────────────────────────────────
+    cout << "\n========== STOCK SUMMARY REPORT ==========\n";
+    cout << "Generated on: " << dateBuf << "\n\n";
+
+    // ─── Stats Setup ──────────────────────────────────────
+    int totalItems = 0;
+    int totalQuantity = 0;
+    double totalValue = 0;
+
+    const Stock* mostExpensive = nullptr;
+    const Stock* leastExpensive = nullptr;
+    const Stock* mostStocked = nullptr;
+    const Stock* leastStocked = nullptr;
+
+    for (const auto& s : stocks) {
+        double itemValue = s.getQuantity() * s.getPrice();
+        totalItems++;
+        totalQuantity += s.getQuantity();
+        totalValue += itemValue;
+
+        if (!mostExpensive || s.getPrice() > mostExpensive->getPrice()) {
+            mostExpensive = &s;
+        }
+        if (!leastExpensive || s.getPrice() < leastExpensive->getPrice()) {
+            leastExpensive = &s;
+        }
+        if (!mostStocked || s.getQuantity() > mostStocked->getQuantity()) {
+            mostStocked = &s;
+        }
+        if (!leastStocked || s.getQuantity() < leastStocked->getQuantity()) {
+            leastStocked = &s;
+        }
+    }
+
+    // ─── Summary ──────────────────────────────────────────
+    cout << "     Total Items:     " << totalItems << "\n";
+    cout << "    Total Quantity:  " << totalQuantity << "\n";
+    cout << "    Inventory Value: $" << fixed << setprecision(2) << totalValue << "\n\n";
+
+    if (mostExpensive) {
+        cout << " Most Expensive: " << mostExpensive->getName()
+             << " ($" << mostExpensive->getPrice() << ")\n";
+    }
+
+    if (leastExpensive) {
+        cout << " Least Expensive: " << leastExpensive->getName()
+             << " ($" << leastExpensive->getPrice() << ")\n";
+    }
+
+    if (mostStocked) {
+        cout << " Most Stocked:   " << mostStocked->getName()
+             << " (" << mostStocked->getQuantity() << " item)\n";
+    }
+
+    if (leastStocked) {
+        cout << " Least Stocked:  " << leastStocked->getName()
+             << " (" << leastStocked->getQuantity() << " item)\n";
+    }
+
+    cout << "==========================================\n\n";
+}
+
