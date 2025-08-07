@@ -1,8 +1,10 @@
 #include <iostream>
+#include <string>
+#include <fstream>
 #include <vector>
 #include <limits>
 #include <algorithm> // for sort, transform
-#include <iomanip>  // for setprecision
+#include <iomanip>  // for setprecision 
 #include <stdexcept> // for exception handling
 #include <numeric> // for accumulate
 #include <ctime> // for time_t
@@ -28,6 +30,7 @@ void updateStock();
 void deleteStock();
 void displayAllStocks();
 void trackInventory();
+void generateLowStockAlerts();
 
 // for User
 void addItemToCart();
@@ -347,6 +350,31 @@ void trackInventory() {
 }
 
 // ─── Stub Functions ─────────────────────────────────────────────
+
+
+//Function Generate Low Stock Alerts
+void generateLowStockAlerts() {
+    cout << "\n----- Low Stock Alerts-----" << endl;
+    vector<Stock> LowStockItems;
+    
+    for (const auto& stock : stocks){
+        if (stock.getQuantity() < LOW_STOCK_THRESHOLD){
+            LowStockItems.push_back(stock);
+        }
+    }
+    if (LowStockItems.empty()){
+        cout << "No items are currently Low in stock." << endl;
+    }else{
+        cout << "The following items are low:" << endl;
+        for (const auto& item : LowStockItems){
+            cout << "ID: " << item.getId()
+                 << "Name:" << item.getName()
+                 << "Quantity:" << item.getQuantity()
+                 << "Price:" << item.getPrice() << endl;
+        }
+    }
+}
+
 
 // Function to register a new user
 void userRegister() { // just add add for allowing new user registration
